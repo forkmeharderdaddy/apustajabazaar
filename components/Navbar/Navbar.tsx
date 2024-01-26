@@ -19,7 +19,7 @@ export function Navbar() {
               src="/friendofthedevil.gif"
               width={64}
               height={64}
-              alt="marketplace logo"
+              alt="marketplace logo 1"
             />
           </Link>
 
