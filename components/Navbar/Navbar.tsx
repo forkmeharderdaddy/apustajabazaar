@@ -16,7 +16,7 @@ export function Navbar() {
         <div className={styles.navLeft}>
           <Link href="/" className={`${styles.homeLink} ${styles.navLeft}`}>
             <Image
-              src="/friendofthedevil.gif"
+              src="/pepepallogo500500.png"
               width={64}
               height={64}
               alt="marketplace logo 1"
@@ -29,6 +29,12 @@ export function Navbar() {
             </Link>
             <Link href="/sell" className={styles.link}>
               Sell
+            </Link>
+            <Link href="/shitpost" className={styles.link}>
+              Shitpost
+            </Link>
+            <Link href="/gamble" className={styles.link}>
+              Gamble
             </Link>
           </div>
         </div>
