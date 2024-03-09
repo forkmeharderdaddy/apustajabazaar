@@ -2,11 +2,13 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import TradingViewWidget from "../components/widgets/radingviewwidget.jsx"
 /**
  * Landing page with a simple gradient background and a hero asset.
  * Free to customize as you see fit.
  */
+
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -24,9 +26,9 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
-          <div className={styles.heroAssetFrame}>
+          <div className={styles.heroAssetFrame}> 
             <Image
-              src="/jbanim1.gif"
+              src="/peakyautismos.gif"
               width={860}
               height={540}
               alt="Hero asset, NFT marketplace"
@@ -38,10 +40,10 @@ const Home: NextPage = () => {
             <div className={styles.heroBody}>
               <h1 className={styles.heroTitle}>
                 <span className={styles.heroTitleGradient}>
-                  Jammy Bears
+                  Apustajas
                 </span>
                 <br />
-                Jamboree
+                Bazaar
               </h1>
               <p className={styles.heroSubtitle}>
                 <Link
@@ -49,28 +51,29 @@ const Home: NextPage = () => {
                   href="https://thirdweb.com"
                   target="_blank"
                 >
-                  Worlds First
+                  A marketplace
                 </Link>{" "}
-                Psychedelic Art and Music Digital Marketplace
+                for shitlords and memetic masters
               </p>
 
               <div className={styles.heroCtaContainer}>
                 <Link className={styles.heroCta} href="/buy">
-                  Explore Market
+                  Browse Wares
                 </Link>
                 <Link
                   className={styles.secondaryCta}
                   href="https://mint.jammybears.com"
                   target="_blank"
                 >
-                  Mint
-                </Link>
+                  Create
+                </Link> 
+                </div>
+                </div>
+                <TradingViewWidget/>
+                </div>            
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
   );
 };
 
