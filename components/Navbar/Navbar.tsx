@@ -15,7 +15,7 @@ export function Navbar() {
       <nav className={styles.nav}>
         <div className={styles.navLeft}>
           <Link href="/" className={`${styles.homeLink} ${styles.navLeft}`}>
-            <Image
+            <img
               src="/pepepallogo500500.png"
               width={64}
               height={64}
@@ -45,7 +45,7 @@ export function Navbar() {
           </div>
           {address && (
             <Link className={styles.link} href={`/profile/${address}`}>
-              <Image
+              <img
                 className={styles.profileImage}
                 src="/user-icon.png"
                 width={42}
