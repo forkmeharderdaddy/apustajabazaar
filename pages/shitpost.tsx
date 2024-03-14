@@ -10,6 +10,7 @@ import {
 } from "@thirdweb-dev/react";
 import { MARKETPLACE_ADDRESS } from "../const/contractAddresses";
 import toast from "react-hot-toast";
+import ShitPostERC20 from "./shitpost_erc20";
 
 const JWT = process.env.NEXT_PUBLIC_PINATA_JWT || "";
 
@@ -158,7 +159,7 @@ const Home: NextPage = () => {
               className={styles.metadataInput}
             />
           </div>
-          <div style={{ marginTop: '30px' }}>
+          <div style={{ marginTop: '30px', display: "flex", gap: "5px" }}>
             <Web3Button
               contractAddress={MARKETPLACE_ADDRESS}
               className={styles.mintButton}
@@ -166,6 +167,7 @@ const Home: NextPage = () => {
             >
               {isLoading ? "Minting..." : "Mint ShitPost"}
             </Web3Button>
+            <ShitPostERC20 file={file as File} shitpostName={shitpostName} shitpostDescription={shitpostDescription} />
           </div>
         </div>
       ) : (
