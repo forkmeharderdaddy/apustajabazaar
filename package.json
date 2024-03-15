@@ -14,13 +14,14 @@
     "@thirdweb-dev/chains": "^0",
     "@thirdweb-dev/react": "^4",
     "@thirdweb-dev/sdk": "^4",
-    "ethers": "^5",
+    "axios": "^1.6.7",
     "next": "^13",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18.2",
     "react-dom": "^18.2",
     "react-hook-form": "^7.43.0",
-    "react-hot-toast": "^2.4.0"
+    "react-hot-toast": "^2.4.0",
+    "web3": "^4.6.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.11",

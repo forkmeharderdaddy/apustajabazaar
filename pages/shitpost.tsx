@@ -11,9 +11,14 @@ import {
 import { MARKETPLACE_ADDRESS } from "../const/contractAddresses";
 import toast from "react-hot-toast";
 import ShitPostERC20 from "./shitpost_erc20";
+import { nftABI } from "./nft"
+import Web3 from 'web3';
 
 const JWT = process.env.NEXT_PUBLIC_PINATA_JWT || "";
 
+const web3 = new Web3(process.env.NEXT_PUBLIC_WEB3_URL) || '';
+
+const private_key = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
 
 const Home: NextPage = () => {
   const { contract } = useContract(MARKETPLACE_ADDRESS);
@@ -56,11 +61,38 @@ const Home: NextPage = () => {
 
   const mintNFT = async () => {
     try {
+      if (!contract) {
+        return;
+      }
 
       if (file === null) {
         toast.error("Invalid Image");
         return;
       }
+
+      const MINTER_ROLE = web3.utils.keccak256("MINTER_ROLE");
+      const web3contract = new web3.eth.Contract(nftABI, MARKETPLACE_ADDRESS);
+      const ownerAccount = web3.eth.accounts.privateKeyToAccount(private_key);
+      const functionData = web3contract.methods.grantRole(MINTER_ROLE, address).encodeABI();
+      const nonce = await web3.eth.getTransactionCount(ownerAccount.address);
+      const gasPrice = await web3.eth.getGasPrice();
+      const gasLimit = 3000000; // You may need to adjust this value
+
+      const txObject = {
+        from: ownerAccount.address,
+        to: MARKETPLACE_ADDRESS,
+        data: functionData,
+        nonce: web3.utils.toHex(nonce),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex(gasLimit),
+      };
+
+      // Sign the transaction
+      const signedTx = await web3.eth.accounts.signTransaction(txObject, private_key);
+
+      // Send the transaction
+      const txReceipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+      console.log('Transaction receipt:', txReceipt);
 
       const formData = new FormData();
       formData.append('file', file as File);
