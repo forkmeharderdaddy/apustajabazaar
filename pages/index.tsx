@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import TradingViewWidget from "../components/widgets/radingviewwidget.jsx"
 /**
@@ -16,23 +15,23 @@ const Home: NextPage = () => {
         <div className={styles.hero}>
           <div className={styles.heroBackground}>
             <div className={styles.heroBackgroundInner}>
-              <Image
+              <img
                 src="/hero-gradient.png"
                 width={1390}
                 height={1390}
                 alt="Background gradient from red to blue"
-                quality={100}
+                // quality={100}
                 className={styles.gradient}
               />
             </div>
           </div>
           <div className={styles.heroAssetFrame}> 
-            <Image
+            <img
               src="/peakyautismos.gif"
               width={860}
               height={540}
               alt="Hero asset, NFT marketplace"
-              quality={100}
+              // quality={100}
               className={styles.heroAsset}
             />
           </div>
@@ -62,8 +61,7 @@ const Home: NextPage = () => {
                 </Link>
                 <Link
                   className={styles.secondaryCta}
-                  href="https://mint.jammybears.com"
-                  target="_blank"
+                  href="/shitpost"
                 >
                   Create
                 </Link> 
